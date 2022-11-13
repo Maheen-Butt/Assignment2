@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity{
     Button btnM, btnB, btnR;
 
     TextView textView1, textView2;
-    int correctAns=0,wrongAns=0,index=0, catagory=0;
+    int correctAns=0,wrongAns=0,index=0, catagory=0, range=0;
     String answer = "";
 
     @Override

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_700"
+    android:background="@color/material_dynamic_neutral10"
     tools:context=".MainActivity">
 
 
@@ -34,6 +34,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:text="BIRD"
+        android:textColor="@color/white"
         app:backgroundTint="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,6 +51,7 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="8dp"
         android:text="MAMMAL"
+        android:textColor="@color/white"
         app:backgroundTint="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,6 +66,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
         android:text="REPTILE"
+        android:textColor="@color/white"
         app:backgroundTint="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,18 +89,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.974" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewResult"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
