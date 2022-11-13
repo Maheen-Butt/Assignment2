@@ -8,14 +8,16 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity{
 
     String [] mammal = {"Humans","Whale","Dolphin","Bat","Sheep","Goat"};
-    String [] bird = {"hen","pegion","eagle","sparrow","parrot","crow"};
+    String [] bird = {"hen","pigion","eagle","sparrow","parrot","crow"};
     String [] reptile = {"Turtle","Crocodilian","Lizard","Snake","Alligators","Dinosaur"};
+
     Button btnM, btnB, btnR;
-    TextView textView, textViewQ, textViewR;
-    int correctAns=0,wrongAns=0,index=0;
+
+    TextView textView1, textView2;
+    int correctAns=0,wrongAns=0,index=0, catagory=0;
     String answer = "";
 
     @Override
@@ -23,64 +25,66 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView=findViewById(R.id.textView);
-        textViewQ=findViewById(R.id.textViewQ);
-        btnM=findViewById(R.id.btnMammal);
-        btnM.setOnClickListener(this);
-        btnB=findViewById(R.id.btnBird);
-        btnB.setOnClickListener(this);
-        btnR=findViewById(R.id.btnReptile);
-        btnR.setOnClickListener(this);
-        textViewR=findViewById(R.id.textViewResult);
-        GenerateRandom();
+
+        textView1 = findViewById(R.id.textViewQ);
+        btnM = findViewById(R.id.btnMammal);
+        btnB = findViewById(R.id.btnBird);
+        btnR = findViewById(R.id.btnReptile);
+        textView2 = findViewById(R.id.textViewResult);
+
+        GenerateLetter();
     }
-    private void GenerateRandom(){
-        Random rnd=new Random();
-        int number=rnd.nextInt(3);
-        if (number==0){
+    public void GenerateLetter() {
+        Random rnd = new Random();
+        catagory = rnd.nextInt(3);
+        if (catagory ==0){
             index = rnd.nextInt(mammal.length);
-            textViewQ.setText(mammal[index]);
+            textView1.setText(mammal[index]);
             answer = "MAMMAL";
-        } else if (number ==1){
-            index=rnd.nextInt(bird.length);
-            textViewQ.setText(bird[index]);
-            answer="BIRD";
-        }else if (number ==2){
+        } else if (catagory ==1){
+            index = rnd.nextInt(bird.length);
+            textView1.setText(bird[index]);
+            answer = "BIRD";
+        }else if (catagory ==2){
             index = rnd.nextInt(reptile.length);
-            textViewQ.setText(reptile[index]);
+            textView1.setText(reptile[index]);
             answer = "REPTILE";
         }
-    }
-    @Override public void onClick(View view){
-        switch (view.getId()){
-
-            case R.id.btnMammal:
-                if (answer == "MAMMAL") {
-                    correctAns++;
-                } else {
-                    wrongAns++;
-                }
-                textViewR.setText("RESULTS \nRight " + correctAns + "\nWrong " + wrongAns);
-                break;
-
-            case R.id.btnBird:
-                if(answer=="BIRDS"){
-                    correctAns++;
-                } else{
-                    wrongAns++;
-                }
-                textViewR.setText("RESULTS \nRight " + correctAns + "\nWrong " + wrongAns);
-                break;
-
-            case R.id.btnReptile:
-                if (answer == "REPTILE") {
-                    correctAns++;
-                } else {
-                    wrongAns++;
-                }
-                textViewR.setText("RESULTS \nRight " + correctAns + "\nWrong " + wrongAns);
-                break;
+    btnM.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(answer=="MAMMAL"){
+                correctAns++;
+            }else {
+                wrongAns++;
+            }
+            textView2.setText("RESULT\n Right :"+correctAns+"\n Wrong :"+wrongAns);
+            GenerateLetter();
         }
-        GenerateRandom();
+    });
+    btnB.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(answer=="BIRD"){
+                correctAns++;
+            }else {
+                wrongAns++;
+            }
+            textView2.setText("RESULT\n Right :"+correctAns+"\n Wrong :"+wrongAns);
+            GenerateLetter();
+        }
+    });
+    btnR.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            if(answer=="REPTILE"){
+                correctAns++;
+            }else {
+                wrongAns++;
+            }
+            textView2.setText("RESULT\n Right :"+correctAns+"\n Wrong :"+wrongAns);
+            GenerateLetter();
+        }
+    });
     }
 }
